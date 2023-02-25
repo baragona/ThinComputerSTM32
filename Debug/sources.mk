@@ -24,4 +24,10 @@ SUBDIRS := \
 Core/Src \
 Core/Startup \
 Drivers/STM32F1xx_HAL_Driver/Src \
+HARDWARE/EPD \
+HARDWARE/Fonts \
+HARDWARE/GUI \
+STM32F10x_FWLib/src \
+delay \
+sys \
 

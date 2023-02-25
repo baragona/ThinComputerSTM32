@@ -5,38 +5,26 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/main.c \
-../Core/Src/stm32f1xx_hal_msp.c \
-../Core/Src/stm32f1xx_it.c \
-../Core/Src/syscalls.c \
-../Core/Src/sysmem.c \
-../Core/Src/system_stm32f1xx.c 
+../HARDWARE/EPD/Display_EPD_W21.c \
+../HARDWARE/EPD/Display_EPD_W21_spi.c 
 
 OBJS += \
-./Core/Src/main.o \
-./Core/Src/stm32f1xx_hal_msp.o \
-./Core/Src/stm32f1xx_it.o \
-./Core/Src/syscalls.o \
-./Core/Src/sysmem.o \
-./Core/Src/system_stm32f1xx.o 
+./HARDWARE/EPD/Display_EPD_W21.o \
+./HARDWARE/EPD/Display_EPD_W21_spi.o 
 
 C_DEPS += \
-./Core/Src/main.d \
-./Core/Src/stm32f1xx_hal_msp.d \
-./Core/Src/stm32f1xx_it.d \
-./Core/Src/syscalls.d \
-./Core/Src/sysmem.d \
-./Core/Src/system_stm32f1xx.d 
+./HARDWARE/EPD/Display_EPD_W21.d \
+./HARDWARE/EPD/Display_EPD_W21_spi.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Core/Src/%.o Core/Src/%.su: ../Core/Src/%.c Core/Src/subdir.mk
+HARDWARE/EPD/%.o HARDWARE/EPD/%.su: ../HARDWARE/EPD/%.c HARDWARE/EPD/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"/Users/kevin/STM32CubeIDE/workspace_1.11.2/myproject/HARDWARE/EPD" -I"/Users/kevin/STM32CubeIDE/workspace_1.11.2/myproject/HARDWARE/Fonts" -I"/Users/kevin/STM32CubeIDE/workspace_1.11.2/myproject/HARDWARE/GUI" -I"/Users/kevin/STM32CubeIDE/workspace_1.11.2/myproject/delay" -I"/Users/kevin/STM32CubeIDE/workspace_1.11.2/myproject/sys" -I"/Users/kevin/STM32CubeIDE/workspace_1.11.2/myproject/STM32F10x_FWLib/inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 
-clean: clean-Core-2f-Src
+clean: clean-HARDWARE-2f-EPD
 
-clean-Core-2f-Src:
-	-$(RM) ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
+clean-HARDWARE-2f-EPD:
+	-$(RM) ./HARDWARE/EPD/Display_EPD_W21.d ./HARDWARE/EPD/Display_EPD_W21.o ./HARDWARE/EPD/Display_EPD_W21.su ./HARDWARE/EPD/Display_EPD_W21_spi.d ./HARDWARE/EPD/Display_EPD_W21_spi.o ./HARDWARE/EPD/Display_EPD_W21_spi.su
 
-.PHONY: clean-Core-2f-Src
+.PHONY: clean-HARDWARE-2f-EPD
 

@@ -9,6 +9,12 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include sys/subdir.mk
+-include delay/subdir.mk
+-include STM32F10x_FWLib/src/subdir.mk
+-include HARDWARE/GUI/subdir.mk
+-include HARDWARE/Fonts/subdir.mk
+-include HARDWARE/EPD/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk

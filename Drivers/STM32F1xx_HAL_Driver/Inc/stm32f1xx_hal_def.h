@@ -26,13 +26,6 @@
 extern "C" {
 #endif
 
-/* Includes ------------------------------------------------------------------*/
-#include "stm32f1xx.h"
-#include "Legacy/stm32_hal_legacy.h"
-#include <stddef.h>
-
-/* Exported types ------------------------------------------------------------*/
-
 /**
   * @brief  HAL Status structures definition
   */
@@ -43,6 +36,15 @@ typedef enum
   HAL_BUSY     = 0x02U,
   HAL_TIMEOUT  = 0x03U
 } HAL_StatusTypeDef;
+
+
+/* Includes ------------------------------------------------------------------*/
+#include "stm32f1xx.h"
+#include "Legacy/stm32_hal_legacy.h"
+#include <stddef.h>
+
+/* Exported types ------------------------------------------------------------*/
+
 
 /**
   * @brief  HAL Lock structures definition
