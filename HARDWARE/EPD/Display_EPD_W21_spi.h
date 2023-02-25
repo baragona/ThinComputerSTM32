@@ -1,6 +1,6 @@
 #ifndef _DISPLAY_EPD_W21_SPI_
 #define _DISPLAY_EPD_W21_SPI_
-#include "stm32f10x.h"
+#include "stm32f1xx_hal_conf.h"
 #include "stm32f10x_gpio.h"
 
 
@@ -26,6 +26,7 @@ void SPI_Write(unsigned char value);
 void EPD_W21_WriteDATA(unsigned char data);
 void EPD_W21_WriteCMD(unsigned char command);
 void EPD_GPIO_Init(void);
+
 
 #endif  //#ifndef _MCU_SPI_H_
 

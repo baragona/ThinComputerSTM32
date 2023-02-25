@@ -22,6 +22,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
+#include "typedefs.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -135,19 +136,20 @@ void GPIO_DeInit(GPIO_TypeDef* GPIOx)
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOE, ENABLE);
     RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOE, DISABLE);
   } 
-  else if (GPIOx == GPIOF)
-  {
-    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOF, ENABLE);
-    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOF, DISABLE);
-  }
-  else
-  {
-    if (GPIOx == GPIOG)
-    {
-      RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOG, ENABLE);
-      RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOG, DISABLE);
-    }
-  }
+  // kevin turned this off
+//  else if (GPIOx == GPIOF)
+//  {
+//    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOF, ENABLE);
+//    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOF, DISABLE);
+//  }
+//  else
+//  {
+//    if (GPIOx == GPIOG)
+//    {
+//      RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOG, ENABLE);
+//      RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOG, DISABLE);
+//    }
+//  }
 }
 
 /**
@@ -166,11 +168,11 @@ void GPIO_AFIODeInit(void)
   * @brief  Initializes the GPIOx peripheral according to the specified
   *         parameters in the GPIO_InitStruct.
   * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
-  * @param  GPIO_InitStruct: pointer to a GPIO_InitTypeDef structure that
+  * @param  GPIO_InitStruct: pointer to a GPIO_InitTypeDefDupe structure that
   *         contains the configuration information for the specified GPIO peripheral.
   * @retval None
   */
-void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
+void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDefDupe* GPIO_InitStruct)
 {
   uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
   uint32_t tmpreg = 0x00, pinmask = 0x00;
@@ -259,11 +261,11 @@ void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
 
 /**
   * @brief  Fills each GPIO_InitStruct member with its default value.
-  * @param  GPIO_InitStruct : pointer to a GPIO_InitTypeDef structure which will
+  * @param  GPIO_InitStruct : pointer to a GPIO_InitTypeDefDupe structure which will
   *         be initialized.
   * @retval None
   */
-void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct)
+void GPIO_StructInit(GPIO_InitTypeDefDupe* GPIO_InitStruct)
 {
   /* Reset GPIO init structure parameters values */
   GPIO_InitStruct->GPIO_Pin  = GPIO_Pin_All;

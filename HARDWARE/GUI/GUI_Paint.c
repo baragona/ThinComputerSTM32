@@ -76,10 +76,8 @@ void Paint_SetMirroring(UBYTE mirror)
         //Debug("mirror image x:%s, y:%s\r\n",(mirror & 0x01)? "mirror":"none", ((mirror >> 1) & 0x01)? "mirror":"none");
         Paint.Mirror = mirror;
     } else {
-    	/*
-         Debug("mirror should be MIRROR_NONE, MIRROR_HORIZONTAL, \
-         MIRROR_VERTICAL or MIRROR_ORIGIN\r\n");
-         */
+        //Debug("mirror should be MIRROR_NONE, MIRROR_HORIZONTAL, \
+        MIRROR_VERTICAL or MIRROR_ORIGIN\r\n");
     }    
 }
 

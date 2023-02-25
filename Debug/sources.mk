@@ -21,13 +21,13 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/Src \
+Core/Startup \
+Drivers/STM32F1xx_HAL_Driver/Src \
 HARDWARE/EPD \
 HARDWARE/Fonts \
 HARDWARE/GUI \
 STM32F10x_FWLib/src \
-SYSTEM/delay \
-SYSTEM/sys \
-SYSTEM/usart \
-USER \
-core \
+delay \
+sys \
 

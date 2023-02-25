@@ -29,7 +29,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f10x.h"
+#include "stm32f1xx_hal_conf.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Driver
   * @{
@@ -98,7 +98,7 @@ typedef struct
 
   GPIOMode_TypeDef GPIO_Mode;    /*!< Specifies the operating mode for the selected pins.
                                       This parameter can be a value of @ref GPIOMode_TypeDef */
-}GPIO_InitTypeDef;
+}GPIO_InitTypeDefDupe;
 
 
 /** 
@@ -348,8 +348,8 @@ typedef enum
 
 void GPIO_DeInit(GPIO_TypeDef* GPIOx);
 void GPIO_AFIODeInit(void);
-void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct);
-void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct);
+void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDefDupe* GPIO_InitStruct);
+void GPIO_StructInit(GPIO_InitTypeDefDupe* GPIO_InitStruct);
 uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx);
 uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
