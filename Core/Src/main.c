@@ -118,13 +118,13 @@ int main(void) {
 		EPD_init(); //EPD init
 		PIC_display(gImage_1); //EPD_picture1
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
-		delay_s(2); //2s
+		delay_s(1); //2s
 
 		//Clear
 		EPD_init(); //EPD init
 		PIC_display_Clear(); //EPD Clear
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
-		delay_s(2); //2s
+		delay_s(1); //2s
 
 ///////////////////////////GUI///////////////////////////////////////////////////////////////////////////////////
 //Data initialization settings
@@ -156,7 +156,7 @@ int main(void) {
 		Paint_DrawCircle(260, 35, 25, BLACK, DRAW_FILL_FULL, DOT_PIXEL_1X1);
 		EPD_Display(BlackImage); //display image
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
-		delay_s(2); //2s
+		delay_s(1); //2s
 
 		/***********String***************************/
 		EPD_init(); //EPD init
@@ -168,7 +168,7 @@ int main(void) {
 		Paint_DrawString_EN(0, 70, "Good Display", &Font24, WHITE, BLACK); //17*24
 		EPD_Display(BlackImage); //display image
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
-		delay_s(2); //2s
+		delay_s(1); //2s
 		/*************Number************************/
 		EPD_init(); //EPD init
 		Paint_Clear(WHITE);
@@ -179,15 +179,15 @@ int main(void) {
 		Paint_DrawNum(0, 70, 123456789, &Font24, WHITE, BLACK); //17*24
 		EPD_Display(BlackImage); //display image
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
-		delay_s(2); //2s
+		delay_s(1); //2s
 
 		//Clear
 		EPD_init(); //EPD init
 		PIC_display_Clear(); //EPD Clear
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
-		delay_s(2); //2s
-		while (1)
-			;
+		delay_s(1); //2s
+//		while (1)
+//			;
 	}
 
 	/* USER CODE END 3 */
