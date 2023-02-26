@@ -29,6 +29,7 @@
 #include "GUI_Paint.h"
 #include "fonts.h"
 
+
 unsigned char BlackImage[4736]; //Define canvas space
 
 /* Private includes ----------------------------------------------------------*/
@@ -131,6 +132,8 @@ int main(void) {
 	delay_init();	    	     //Delay function initialization
 	NVIC_Configuration(); 	//Set NVIC interrupt grouping 2
 	EPD_GPIO_Init();       //EPD GPIO  initialization
+	EPD_init(); //EPD init
+
 	while (1) {
 ///////////////////////////Normal picture display/////////////////////////////////////////////////////////////////
 		/************Normal picture display*******************/

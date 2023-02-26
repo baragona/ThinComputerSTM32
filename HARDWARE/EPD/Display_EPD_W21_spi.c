@@ -77,6 +77,24 @@ void EPD_W21_WriteDATA(unsigned char data)
 	EPD_W21_CS_1;
 }
 
+void EPD_W21_WriteDATA_array(const uint8_t* data, uint16_t n, int16_t fill_with_zeroes)
+{
+	SPI_Delay(1);
+  EPD_W21_CS_0;
+	EPD_W21_DC_1;		// data write
+
+	  for (uint8_t i = 0; i < n; i++)
+	  {
+		  SPI_Write(*data++);
+	  }
+	  while (fill_with_zeroes > 0)
+	  {
+		  SPI_Write(0x00);
+	    fill_with_zeroes--;
+	  }
+
+	EPD_W21_CS_1;
+}
 
 
 

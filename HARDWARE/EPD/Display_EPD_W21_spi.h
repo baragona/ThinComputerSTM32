@@ -26,7 +26,7 @@ void SPI_Write(unsigned char value);
 void EPD_W21_WriteDATA(unsigned char data);
 void EPD_W21_WriteCMD(unsigned char command);
 void EPD_GPIO_Init(void);
-
+void EPD_W21_WriteDATA_array(const uint8_t* data, uint16_t n, int16_t fill_with_zeroes);
 
 #endif  //#ifndef _MCU_SPI_H_
 
