@@ -68,6 +68,26 @@ void SystemClock_Config(void);
 
 /* USER CODE END 0 */
 
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_12, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PE12 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+}
+
+
 /**
  * @brief  The application entry point.
  * @retval int
@@ -94,7 +114,7 @@ int main(void) {
 	/* USER CODE END SysInit */
 
 	/* Initialize all configured peripherals */
-//	MX_GPIO_Init();
+	MX_GPIO_Init();
 	/* USER CODE BEGIN 2 */
 
 	/* USER CODE END 2 */
@@ -108,7 +128,6 @@ int main(void) {
 //
 //		/* USER CODE BEGIN 3 */
 //	}
-
 	delay_init();	    	     //Delay function initialization
 	NVIC_Configuration(); 	//Set NVIC interrupt grouping 2
 	EPD_GPIO_Init();       //EPD GPIO  initialization
@@ -119,12 +138,16 @@ int main(void) {
 		PIC_display(gImage_1); //EPD_picture1
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
 		delay_s(1); //2s
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+
 
 		//Clear
 		EPD_init(); //EPD init
 		PIC_display_Clear(); //EPD Clear
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
 		delay_s(1); //2s
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+
 
 ///////////////////////////GUI///////////////////////////////////////////////////////////////////////////////////
 //Data initialization settings
@@ -157,6 +180,8 @@ int main(void) {
 		EPD_Display(BlackImage); //display image
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
 		delay_s(1); //2s
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+
 
 		/***********String***************************/
 		EPD_init(); //EPD init
@@ -169,6 +194,8 @@ int main(void) {
 		EPD_Display(BlackImage); //display image
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
 		delay_s(1); //2s
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+
 		/*************Number************************/
 		EPD_init(); //EPD init
 		Paint_Clear(WHITE);
@@ -180,12 +207,16 @@ int main(void) {
 		EPD_Display(BlackImage); //display image
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
 		delay_s(1); //2s
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+
 
 		//Clear
 		EPD_init(); //EPD init
 		PIC_display_Clear(); //EPD Clear
 		EPD_sleep(); //EPD_sleep,Sleep instruction is necessary, please do not delete!!!
 		delay_s(1); //2s
+		HAL_GPIO_TogglePin(GPIOE, GPIO_PIN_12);
+
 //		while (1)
 //			;
 	}
@@ -199,7 +230,6 @@ int main(void) {
  * @retval None
  */
 void SystemClock_Config(void) {
-
 
 	RCC_OscInitTypeDef RCC_OscInitStruct = { 0 };
 	RCC_ClkInitTypeDef RCC_ClkInitStruct = { 0 };
@@ -229,7 +259,6 @@ void SystemClock_Config(void) {
 	}
 
 }
-
 
 /* USER CODE BEGIN 4 */
 
